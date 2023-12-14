@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'bookers#top'
+  get '/books' => 'bookers#books'
   get 'bookers/top'
   get 'bookers/books'
   get 'bookers/show'
