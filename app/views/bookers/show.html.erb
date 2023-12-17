@@ -1,11 +1,14 @@
-  <h4>Title</h4>
-  <%= @book.title %>
+<body_show>
 
-  <h4>Body</h4>
-  <%= @book.body %>
+    <% flash.each do |message_type, message| %>
+    <p class="notice <%= message_type %>"><%= message %></p>
+    <% end %>
 
-  <p>
-  <%= link_to "Edit", edit_book_path(@book.id) %>
+  <pp><strong>Title: </strong><%= @book.title %></pp>
+  <pp><strong>Body: </strong><%= @book.body %></pp>
+
+</body_show>
+
+  <a><%= link_to "Edit", edit_book_path(@book.id) %></a>
    |
-  <a class="back" href="/books">Back</a>
-  </p>
+  <a><%= link_to "Back", "/books" %></a>
