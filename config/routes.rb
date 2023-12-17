@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'bookers#top'
-  get '/books' => 'bookers#books'
-  get 'bookers/top'
-  get 'bookers/books'
-  get 'bookers/show'
-  get 'bookers/edit'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to:'bookers#top'
+  get 'books' => 'bookers#index', as:'book'
+  post 'books' => 'bookers#create'
+  get 'books/:id' => 'bookers#show', as:'show_book'
+  get 'books/:id/edit' => 'bookers#edit', as:'edit_book'
+  patch 'books/:id' => 'bookers#update', as:'update_book'
+  delete 'books/:id' => 'bookers#destroy', as:'destroy_book'
+  resources :books
 end
