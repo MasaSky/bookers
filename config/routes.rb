@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to:'bookers#top'
-  get 'books' => 'bookers#index', as:'book'
+  get 'books' => 'bookers#index'
   post 'books' => 'bookers#create'
   get 'books/:id' => 'bookers#show', as:'show_book'
   get 'books/:id/edit' => 'bookers#edit', as:'edit_book'

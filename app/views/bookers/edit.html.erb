@@ -1,6 +1,19 @@
 <h1>Editing Book</h1>
+
+<% if @book.errors.any? %>
+  <div id="error_explanation">
+  <% error_count = @book.errors.count %>
+  <h2><%= error_count %> <%= 'error'.pluralize(error_count) %> prohibited this book from being saved:</h2>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+<% end %>
+
 <%= form_with model: @book, url: update_book_path(@book.id), method: :patch do |f| %>
-    <form>
+    <form_edit>
     <div class="field">
     <la>Title</la>
     <%= f.text_field :title %>
@@ -10,7 +23,7 @@
     <%= f.text_area :body %>
     </div>
     <div class="action"><%= f.submit 'Update Book' %></div>
-    </form>
+    </form_edit>
 <% end %>
   <p>
   <%= link_to "Show", show_book_path(@book.id) %>

@@ -1,14 +1,12 @@
 <body_show>
 
-    <% flash.each do |message_type, message| %>
-    <p class="notice <%= message_type %>"><%= message %></p>
-    <% end %>
-
   <pp><strong>Title: </strong><%= @book.title %></pp>
   <pp><strong>Body: </strong><%= @book.body %></pp>
 
 </body_show>
 
-  <a><%= link_to "Edit", edit_book_path(@book.id) %></a>
+  <p>
+  <%= link_to "Edit", edit_book_path(@book.id) %>
    |
-  <a><%= link_to "Back", "/books" %></a>
+  <%= link_to "Back", "/books" %>
+  </p>
